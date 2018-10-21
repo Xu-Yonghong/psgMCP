@@ -21,7 +21,7 @@ start.time <- Sys.time()
 B <- 200#replication
 n <- 200#sample size of training data
 n.test <- 200#sample size of testing data
-p <- p1000
+p <- 1000
 q <- 4
 
 sd.error <- 1
