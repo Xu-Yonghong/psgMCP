@@ -186,7 +186,6 @@ center.data <- function(X,W,Y,alpha0,a0,b0,type){
   taylor <- taylor.exp(X,W,Y,alpha0,a0,b0,type)
   weight <- taylor$weight
   Ystar <- taylor$Ystar
-  message(length(Ystar))
   mean.W <- apply(W,2,weighted.mean, w=weight)
   mean.Y <- weighted.mean(Ystar,weight)
   mean.X <- apply(X,2,weighted.mean, w=weight)
@@ -484,7 +483,6 @@ sgMCP.prior <- function(X,W,Y,alpha.initial,a0,b0,type,kappa1,kappa2,xi,epsilon)
       break
     
   }
-  message(c('prior ','s=',s,' ','kappa1=', kappa1,' ', 'kappa2=',kappa2))
   return(list(alpha=alpha.initial,a=a0,b=b0))
 }
 
@@ -516,7 +514,6 @@ cv.sgMCP.prior <- function (X,W,Y,X.test,W.test,Y.test,alpha.initial,a0,b0, type
       array.a[i,j,] <- esta
       array.b[i,j,] <- estb
       mat.alpha[i,j] <- estalpha
-      message('prior', c(i,j))
     }
   }
   
@@ -620,8 +617,7 @@ sgMCP <- function(X,W,Y,alpha.initial,a0,b0,type,lambda1,lambda2,xi) {
       break
     
   }
-  message(c('psgMCP ','s=',s,' ','lambda1=', lambda1,' ', 'lambda2=',lambda2))
-  
+
   return(list(alpha=alpha.initial,a=a0,b=b0))
 }
 
@@ -656,7 +652,6 @@ cv.sgMCP.differlam2 <- function(X,W,Y,Yhat.prior,X.test,W.test,Y.test,alpha.init
         array.a[i,j,k,] <- esta
         array.b[i,j,k,] <- estb
         array.alpha[i,j,k] <- estalpha
-        message(c('psgMCP ',c(i,j,k)))
       }
     }
   }
@@ -708,7 +703,6 @@ cv.sgMCP <- function(X,W,Y,X.test,W.test,Y.test,alpha.initial,a0,b0,
       array.a[i,j,] <- esta
       array.b[i,j,] <- estb
       mat.alpha[i,j] <- estalpha
-      message(c('sgMCP ',c(i,j)))
     }
   }
   
@@ -730,6 +724,3 @@ cv.sgMCP <- function(X,W,Y,X.test,W.test,Y.test,alpha.initial,a0,b0,
 
 
 #############################                  the end               ######################################
-
-
-
